@@ -22,8 +22,7 @@ jobs:
         run: npm install
 
       - name: Build App
-        run: |
-          npm run build
+        run: npm run build
 
       - name: Set up Git
         run: |
@@ -32,7 +31,6 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Deploy to GitHub Pages
-        run: |
-          npm run deploy
+        run: npm run deploy
         env:
           CI: true
