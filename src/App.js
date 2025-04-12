@@ -1,37 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
-
   const handleDownload = () => {
-    toast.success("📥 Downloading Abstract...");
+    toast.success("Abstract downloaded successfully!");
   };
 
   return (
     <div className="container">
       <div className="theme-toggle">
-        <button onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+        <button
+          onClick={() =>
+            document.body.classList.toggle("dark-mode")
+          }
+        >
+          Toggle Mode
         </button>
       </div>
 
@@ -41,7 +31,7 @@ function App() {
       </p>
 
       <a href="/docs/NavIC_Sentinel_Abstract.pdf" download onClick={handleDownload}>
-        <button className="download-btn">Download Abstract</button>
+        <button className="download-btn" data-aos="zoom-in">Download Abstract</button>
       </a>
 
       <section data-aos="fade-up">
@@ -50,6 +40,16 @@ function App() {
           NavIC Sentinel is designed to deliver real-time geolocation and emergency alerts
           even in GSM-restricted zones using microcontrollers and wireless modules.
         </p>
+      </section>
+
+      <section data-aos="fade-up">
+        <h2>Block Diagram</h2>
+        <img src="/images/block-diagram.png" alt="Block Diagram" className="image" />
+      </section>
+
+      <section data-aos="fade-up">
+        <h2>Working Prototype</h2>
+        <img src="/images/prototype.png" alt="Prototype Model" className="image" />
       </section>
 
       <section data-aos="fade-up">
@@ -71,7 +71,21 @@ function App() {
         </ul>
       </section>
 
-      <ToastContainer position="bottom-center" />
+      <section data-aos="fade-up">
+        <h2>Objective</h2>
+        <p>
+          To develop a real-time alert and tracking system with engine cut-off mechanism for maritime or border crossing intrusions using NavIC and wireless communication.
+        </p>
+      </section>
+
+      <section data-aos="fade-up">
+        <h2>Methodology</h2>
+        <p>
+          The system utilizes a NavIC-based GPS module, sensors, display, and buzzer interfaced to a microcontroller. Alerts are sent via Bluetooth to a mobile device and emergency engines can be cut off.
+        </p>
+      </section>
+
+      <ToastContainer />
     </div>
   );
 }

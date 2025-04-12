@@ -3,12 +3,12 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: #f9f9f9;
     color: #222;
-    transition: background 0.3s, color 0.3s;
+    transition: all 0.4s ease;
   }
   
-  body.dark {
-    background-color: #121212;
-    color: #f0f0f0;
+  body.dark-mode {
+    background: #121212;
+    color: #fff;
   }
   
   .container {
@@ -28,12 +28,14 @@ body {
     font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s;
   }
   
-  button.download-btn:hover,
-  .theme-toggle button:hover {
-    background-color: #0056b3;
+  .image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+    border-radius: 8px;
   }
   
   .theme-toggle {
