@@ -3,6 +3,12 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: #f9f9f9;
     color: #222;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  body.dark {
+    background-color: #121212;
+    color: #f0f0f0;
   }
   
   .container {
@@ -12,7 +18,8 @@ body {
     line-height: 1.6;
   }
   
-  button.download-btn {
+  button.download-btn,
+  .theme-toggle button {
     margin-top: 1rem;
     background-color: #007bff;
     color: white;
@@ -21,5 +28,15 @@ body {
     font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button.download-btn:hover,
+  .theme-toggle button:hover {
+    background-color: #0056b3;
+  }
+  
+  .theme-toggle {
+    text-align: right;
   }
   
