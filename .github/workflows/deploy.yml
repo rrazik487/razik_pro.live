@@ -30,3 +30,4 @@ jobs:
           npm run deploy
         env:
           CI: true
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the GitHub token stored in GitHub Secrets
