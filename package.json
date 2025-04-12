@@ -2,7 +2,7 @@
     "name": "navic-sentinel-site",
     "version": "1.0.0",
     "private": true,
-    "homepage": "https://rrazik487.github.io/razik_pro.live",
+    "homepage":  "https://razik.live",
     "dependencies": {
         "aos": "^2.3.4",
         "react": "^18.2.0",
