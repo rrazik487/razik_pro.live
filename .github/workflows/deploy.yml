@@ -25,9 +25,14 @@ jobs:
         run: |
           npm run build
 
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+
       - name: Deploy to GitHub Pages
         run: |
           npm run deploy
         env:
           CI: true
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Use the GitHub token stored in GitHub Secrets
