@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/razik_pro.live/static/css/main.8a608541.css",
+    "main.js": "/razik_pro.live/static/js/main.b312165b.js",
+    "index.html": "/razik_pro.live/index.html",
+    "main.8a608541.css.map": "/razik_pro.live/static/css/main.8a608541.css.map",
+    "main.b312165b.js.map": "/razik_pro.live/static/js/main.b312165b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a608541.css",
+    "static/js/main.b312165b.js"
+  ]
+}
