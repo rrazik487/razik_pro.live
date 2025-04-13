@@ -86,8 +86,9 @@ function App() {
         </p>
       </section>
 
-      <section data-aos="fade-up" className="contact-section">
-        <h2>/connect-me</h2>
+      {/* Floating Contact Box */}
+      <div className="floating-contact" data-aos="fade-left">
+        <h3>/connect-me</h3>
         <p><strong>Name:</strong> S. Razikur Rahman</p>
         <p><strong>Phone:</strong> 6382308661</p>
         <div className="social-icons">
@@ -98,7 +99,7 @@ function App() {
             <FaInstagram className="icon instagram" />
           </a>
         </div>
-      </section>
+      </div>
 
       <ToastContainer />
     </div>

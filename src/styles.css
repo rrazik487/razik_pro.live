@@ -71,4 +71,54 @@ body {
   .icon:hover {
     transform: scale(1.2);
   }
+  .floating-contact {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 240px;
+    background-color: #f1f1f1;
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    font-size: 14px;
+  }
+  
+  body.dark-mode .floating-contact {
+    background-color: #1f1f1f;
+    color: #fff;
+  }
+  
+  .floating-contact h3 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .floating-contact .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .floating-contact .icon {
+    font-size: 24px;
+    color: #0077b5;
+    transition: transform 0.3s ease;
+  }
+  
+  .floating-contact .icon.instagram {
+    color: #e1306c;
+  }
+  
+  .floating-contact .icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Optional: Hide on small screens */
+  @media (max-width: 768px) {
+    .floating-contact {
+      display: none;
+    }
+  }
   
