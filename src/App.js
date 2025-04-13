@@ -30,7 +30,7 @@ function App() {
         An emergency alert and tracking system using India’s NavIC satellite for high-precision coverage.
       </p>
 
-      <a href="/docs/NavIC_Sentinel_Abstract.pdf" download onClick={handleDownload}>
+      <a href="public\docs\NavIC_Sentinel_Abstract.pdf" download onClick={handleDownload}>
         <button className="download-btn" data-aos="zoom-in">Download Abstract</button>
       </a>
 
