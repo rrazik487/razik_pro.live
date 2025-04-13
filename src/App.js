@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,12 +6,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 function App() {
+  const [showContact, setShowContact] = useState(true);
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
   const handleDownload = () => {
     toast.success("Abstract downloaded successfully!");
+  };
+
+  const handleCloseContact = () => {
+    setShowContact(false);
   };
 
   return (
@@ -87,19 +93,22 @@ function App() {
       </section>
 
       {/* Floating Contact Box */}
-      <div className="floating-contact" data-aos="fade-left">
-        <h3>/connect-me</h3>
-        <p><strong>Name:</strong> S. Razikur Rahman</p>
-        <p><strong>Phone:</strong> 6382308661</p>
-        <div className="social-icons">
-          <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" rel="noreferrer">
-            <FaLinkedin className="icon linkedin" />
-          </a>
-          <a href="https://www.instagram.com/razik_487" target="_blank" rel="noreferrer">
-            <FaInstagram className="icon instagram" />
-          </a>
+      {showContact && (
+        <div className="floating-contact" data-aos="fade-left">
+          <button className="close-btn" onClick={handleCloseContact}>✖️</button>
+          <h3>/connect-me</h3>
+          <p><strong>Name:</strong> S. Razikur Rahman</p>
+          <p><strong>Phone:</strong> 6382308661</p>
+          <div className="social-icons">
+            <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" rel="noreferrer">
+              <FaLinkedin className="icon linkedin" />
+            </a>
+            <a href="https://www.instagram.com/razik_487" target="_blank" rel="noreferrer">
+              <FaInstagram className="icon instagram" />
+            </a>
+          </div>
         </div>
-      </div>
+      )}
 
       <ToastContainer />
     </div>
