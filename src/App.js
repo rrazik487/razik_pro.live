@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 function App() {
   useEffect(() => {
@@ -30,7 +31,7 @@ function App() {
         An emergency alert and tracking system using India’s NavIC satellite for high-precision coverage.
       </p>
 
-      <a href="docs\NavIC_Sentinel_Abstract.pdf" download onClick={handleDownload}>
+      <a href="docs/NavIC_Sentinel_Abstract.pdf" download onClick={handleDownload}>
         <button className="download-btn" data-aos="zoom-in">Download Abstract</button>
       </a>
 
@@ -83,6 +84,20 @@ function App() {
         <p>
           The system utilizes a NavIC-based GPS module, sensors, display, and buzzer interfaced to a microcontroller. Alerts are sent via Bluetooth to a mobile device and emergency engines can be cut off.
         </p>
+      </section>
+
+      <section data-aos="fade-up" className="contact-section">
+        <h2>Contact</h2>
+        <p><strong>Name:</strong> S. Razikur Rahman</p>
+        <p><strong>Phone:</strong> 6382308661</p>
+        <div className="social-icons">
+          <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" rel="noreferrer">
+            <FaLinkedin className="icon linkedin" />
+          </a>
+          <a href="https://www.instagram.com/razik_487" target="_blank" rel="noreferrer">
+            <FaInstagram className="icon instagram" />
+          </a>
+        </div>
       </section>
 
       <ToastContainer />

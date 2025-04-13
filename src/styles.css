@@ -41,4 +41,34 @@ body {
   .theme-toggle {
     text-align: right;
   }
+  .contact-section {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+  }
+  
+  body.dark-mode .contact-section {
+    background-color: #1f1f1f;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .icon {
+    font-size: 30px;
+    color: #0077b5;
+    transition: transform 0.3s ease;
+  }
+  
+  .icon.instagram {
+    color: #e1306c;
+  }
+  
+  .icon:hover {
+    transform: scale(1.2);
+  }
   
