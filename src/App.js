@@ -87,7 +87,7 @@ function App() {
       </section>
 
       <section data-aos="fade-up" className="contact-section">
-        <h2>Contact</h2>
+        <h2>/connect-me</h2>
         <p><strong>Name:</strong> S. Razikur Rahman</p>
         <p><strong>Phone:</strong> 6382308661</p>
         <div className="social-icons">
