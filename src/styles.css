@@ -1,159 +1,266 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    color: #222;
-    transition: all 0.4s ease;
-  }
-  
-  body.dark-mode {
-    background: #121212;
-    color: #fff;
-  }
-  
-  .container {
-    padding: 2rem;
-    max-width: 900px;
-    margin: auto;
-    line-height: 1.6;
-  }
-  
-  button.download-btn,
-  .theme-toggle button {
-    margin-top: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    margin-top: 1rem;
-    border-radius: 8px;
-  }
-  
-  .theme-toggle {
-    text-align: right;
-  }
-  .contact-section {
-    margin-top: 3rem;
-    padding: 1.5rem;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-  }
-  
-  body.dark-mode .contact-section {
-    background-color: #1f1f1f;
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .icon {
-    font-size: 30px;
-    color: #0077b5;
-    transition: transform 0.3s ease;
-  }
-  
-  .icon.instagram {
-    color: #e1306c;
-  }
-  
-  .icon:hover {
-    transform: scale(1.2);
-  }
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #222;
+  transition: all 0.4s ease;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #fff;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+button.download-btn,
+.theme-toggle button {
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.download-btn:hover,
+.theme-toggle button:hover {
+  background-color: #0056b3;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.theme-toggle {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.contact-section {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+body.dark-mode .contact-section {
+  background-color: #1f1f1f;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.icon {
+  font-size: 30px;
+  color: #0077b5;
+  transition: transform 0.3s ease;
+}
+
+.icon.instagram {
+  color: #e1306c;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.floating-contact {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  width: 240px;
+  background-color: #f1f1f1;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  font-size: 14px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+body.dark-mode .floating-contact {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+.floating-contact h3 {
+  margin-top: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.floating-contact .social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.floating-contact .icon {
+  font-size: 24px;
+  color: #0077b5;
+  transition: transform 0.3s ease;
+}
+
+.floating-contact .icon.instagram {
+  color: #e1306c;
+}
+
+.floating-contact .icon:hover {
+  transform: scale(1.2);
+}
+
+.floating-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 22px;
+  padding: 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.floating-icon:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
   .floating-contact {
-    position: fixed;
-    top: 120px;
+    bottom: 20px;
     right: 20px;
-    width: 240px;
-    background-color: #f1f1f1;
-    padding: 1.2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    font-size: 14px;
+    width: 90%;
+    max-width: 320px;
+    padding: 1rem;
+    font-size: 13px;
   }
-  
+
+  .floating-contact h3 {
+    font-size: 16px;
+  }
+
+  .floating-contact .icon {
+    font-size: 20px;
+  }
+
   body.dark-mode .floating-contact {
     background-color: #1f1f1f;
-    color: #fff;
   }
-  
-  .floating-contact h3 {
-    margin-top: 0;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .floating-contact .social-icons {
-    display: flex;
-    gap: 1rem;
+
+  .theme-toggle {
+    text-align: center;
     margin-top: 1rem;
   }
-  
-  .floating-contact .icon {
-    font-size: 24px;
-    color: #0077b5;
-    transition: transform 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+body.dark-mode .close-btn {
+  color: #fff;
+}
+
+/* Video Styling */
+video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect for abstract text */
+span[onClick] {
+  transition: color 0.3s ease;
+}
+
+span[onClick]:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Responsive video */
+/* ...existing styles remain unchanged above... */
+
+/* Contact Box Open/Closed Transition */
+.floating-container {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 999;
+  transition: all 0.4s ease;
+}
+
+.floating-container.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-container.closed {
+  transform: translateX(150%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Bouncing Animation for Floating Icon */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .floating-contact .icon.instagram {
-    color: #e1306c;
+
+  50% {
+    transform: translateY(-10px);
   }
-  
-  .floating-contact .icon:hover {
-    transform: scale(1.2);
-  }
-  
-  @media (max-width: 768px) {
-    .floating-contact {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 90%;
-      max-width: 320px;
-      padding: 1rem;
-      font-size: 13px;
-      background-color: #f1f1f1;
-      border-radius: 12px;
-      z-index: 999;
-    }
-  
-    .floating-contact h3 {
-      font-size: 16px;
-    }
-  
-    .floating-contact .icon {
-      font-size: 20px;
-    }
-  
-    body.dark-mode .floating-contact {
-      background-color: #1f1f1f;
-    }
-  }
-  .close-btn {
-    position: absolute;
-    top: 6px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  body.dark-mode .close-btn {
-    color: #fff;
-  }
-    
+}
+
+.bounce {
+  animation: bounce 1.5s infinite;
+}
+
+/* Loader for Video */
+.video-loader {
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #eeeeee;
+  color: #333;
+  border-radius: 6px;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .video-loader {
+  background: #2a2a2a;
+  color: #ddd;
+}

@@ -7,22 +7,25 @@ import { FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 function App() {
   const [showContact, setShowContact] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const toggleContact = () => {
-    setShowContact(!showContact);
-  };
+  const toggleContact = () => setShowContact(!showContact);
 
-  const handleAbstractClick = () => {
-    toast.success("Opening abstract...");
+  const handleAbstractDownload = () => {
+    toast.success("Downloading abstract...");
+    const link = document.createElement("a");
+    link.href = "docs/NavIC_Sentinel_Abstract.pdf";
+    link.download = "NavIC_Sentinel_Abstract.pdf";
+    link.click();
   };
 
   return (
     <div className="container dark-mode">
-      {/* Theme Toggle */}
       <div className="theme-toggle">
         <button onClick={() => document.body.classList.toggle("dark-mode")}>
           Toggle Mode
@@ -37,11 +40,8 @@ function App() {
           for high-precision coverage.
         </p>
         <p style={{ fontSize: "14px", marginTop: "10px" }}>
-          <a
-            href="docs/NavIC_Sentinel_Abstract.pdf"
-            onClick={handleAbstractClick}
-            target="_blank"
-            rel="noreferrer"
+          <span
+            onClick={handleAbstractDownload}
             style={{
               color: "#007bff",
               textDecoration: "underline",
@@ -49,34 +49,46 @@ function App() {
               fontWeight: "500",
             }}
           >
-            📄 View Abstract
-          </a>
+            📄 Download Abstract
+          </span>
         </p>
       </header>
 
+      {/* Demo Video */}
+      <section data-aos="fade-up">
+        <h2>Demo Video</h2>
+        {!videoLoaded && !videoError && (
+          <div className="video-loader">Loading demo...</div>
+        )}
+        {videoError ? (
+          <div style={{ color: "red", marginTop: "1rem" }}>
+            ❌ Failed to load video. Please try again later.
+          </div>
+        ) : (
+          <video
+            src="videos/demo.mp4"
+            controls
+            loop
+            autoPlay
+            muted
+            onCanPlayThrough={() => setVideoLoaded(true)}
+            onError={() => {
+              setVideoError(true);
+              setVideoLoaded(false);
+            }}
+            style={{
+              width: "100%",
+              maxWidth: "800px",
+              borderRadius: "8px",
+              marginTop: "1rem",
+              display: videoLoaded ? "block" : "none",
+            }}
+          />
+        )}
+      </section>
+
       {/* Main Sections */}
       <main>
-        <section data-aos="fade-up">
-          <h2>Demo Video</h2>
-          <div style={{ position: "relative", paddingTop: "56.25%" }}>
-            <iframe
-              src="https://drive.google.com/file/d/1dwXJ0FsAhjT9N9oU88mRc1CZZ6-ZN3mz/preview"
-              title="Demo Video"
-              allow="autoplay"
-              allowFullScreen
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                border: "none",
-                borderRadius: "8px",
-              }}
-            />
-          </div>
-        </section>
-
         <section data-aos="fade-up">
           <h2>Overview</h2>
           <p>
@@ -132,29 +144,29 @@ function App() {
         </section>
       </main>
 
-      {/* Floating Contact Box */}
-      {showContact ? (
-        <div className="floating-contact" data-aos="fade-left">
-          <button className="close-btn" onClick={toggleContact}>
-            ✖️
-          </button>
-          <h3>/connect-me</h3>
-          <p><strong>Name:</strong> S. Razikur Rahman</p>
-          <p><strong>Phone:</strong> 6382308661</p>
-          <div className="social-icons">
-            <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" rel="noreferrer">
-              <FaLinkedin className="icon linkedin" />
-            </a>
-            <a href="https://www.instagram.com/razik_487" target="_blank" rel="noreferrer">
-              <FaInstagram className="icon instagram" />
-            </a>
+      {/* Floating Contact */}
+      <div className={`floating-container ${showContact ? "open" : "closed"}`}>
+        {showContact ? (
+          <div className="floating-contact" data-aos="fade-left">
+            <button className="close-btn" onClick={toggleContact}>✖️</button>
+            <h3>/connect-me</h3>
+            <p><strong>Name:</strong> S. Razikur Rahman</p>
+            <p><strong>Phone:</strong> 6382308661</p>
+            <div className="social-icons">
+              <a href="https://www.linkedin.com/in/s-razikur-rahman-304415235" target="_blank" rel="noreferrer">
+                <FaLinkedin className="icon linkedin" />
+              </a>
+              <a href="https://www.instagram.com/razik_487" target="_blank" rel="noreferrer">
+                <FaInstagram className="icon instagram" />
+              </a>
+            </div>
           </div>
-        </div>
-      ) : (
-        <button className="floating-icon" onClick={toggleContact} title="Contact Me">
-          <FaEnvelope />
-        </button>
-      )}
+        ) : (
+          <button className="floating-icon bounce" onClick={toggleContact} title="Contact Me">
+            <FaEnvelope />
+          </button>
+        )}
+      </div>
 
       <ToastContainer />
     </div>
