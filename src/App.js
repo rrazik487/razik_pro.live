@@ -12,17 +12,17 @@ function App() {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const handleDownload = () => {
-    toast.success("Abstract downloaded successfully!");
-  };
-
   const toggleContact = () => {
     setShowContact(!showContact);
   };
 
+  const handleAbstractClick = () => {
+    toast.success("Opening abstract...");
+  };
+
   return (
     <div className="container dark-mode">
-      {/* Mode Toggle */}
+      {/* Theme Toggle */}
       <div className="theme-toggle">
         <button onClick={() => document.body.classList.toggle("dark-mode")}>
           Toggle Mode
@@ -33,18 +33,50 @@ function App() {
       <header className="hero-section" data-aos="fade-down">
         <h1>NavIC Sentinel</h1>
         <p>
-          An emergency alert and tracking system using India’s NavIC satellite for
-          high-precision coverage.
+          An emergency alert and tracking system using India’s NavIC satellite
+          for high-precision coverage.
         </p>
-        <a href="docs/NavIC_Sentinel_Abstract.pdf" download onClick={handleDownload}>
-          <button className="download-btn" data-aos="zoom-in">
-            Download Abstract
-          </button>
-        </a>
+        <p style={{ fontSize: "14px", marginTop: "10px" }}>
+          <a
+            href="docs/NavIC_Sentinel_Abstract.pdf"
+            onClick={handleAbstractClick}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              color: "#007bff",
+              textDecoration: "underline",
+              cursor: "pointer",
+              fontWeight: "500",
+            }}
+          >
+            📄 View Abstract
+          </a>
+        </p>
       </header>
 
       {/* Main Sections */}
       <main>
+        <section data-aos="fade-up">
+          <h2>Demo Video</h2>
+          <div style={{ position: "relative", paddingTop: "56.25%" }}>
+            <iframe
+              src="https://drive.google.com/file/d/1dwXJ0FsAhjT9N9oU88mRc1CZZ6-ZN3mz/preview"
+              title="Demo Video"
+              allow="autoplay"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: "none",
+                borderRadius: "8px",
+              }}
+            />
+          </div>
+        </section>
+
         <section data-aos="fade-up">
           <h2>Overview</h2>
           <p>
@@ -103,7 +135,9 @@ function App() {
       {/* Floating Contact Box */}
       {showContact ? (
         <div className="floating-contact" data-aos="fade-left">
-          <button className="close-btn" onClick={toggleContact}>✖️</button>
+          <button className="close-btn" onClick={toggleContact}>
+            ✖️
+          </button>
           <h3>/connect-me</h3>
           <p><strong>Name:</strong> S. Razikur Rahman</p>
           <p><strong>Phone:</strong> 6382308661</p>
