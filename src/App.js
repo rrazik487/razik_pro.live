@@ -55,37 +55,33 @@ function App() {
       </header>
 
       {/* Demo Video */}
-      <section data-aos="fade-up">
-        <h2>Demo Video</h2>
-        {!videoLoaded && !videoError && (
-          <div className="video-loader">Loading demo...</div>
-        )}
-        {videoError ? (
-          <div style={{ color: "red", marginTop: "1rem" }}>
-            ❌ Failed to load video. Please try again later.
-          </div>
-        ) : (
-          <video
-            src="videos/demo.mp4"
-            controls
-            loop
-            autoPlay
-            muted
-            onCanPlayThrough={() => setVideoLoaded(true)}
-            onError={() => {
-              setVideoError(true);
-              setVideoLoaded(false);
-            }}
-            style={{
-              width: "100%",
-              maxWidth: "800px",
-              borderRadius: "8px",
-              marginTop: "1rem",
-              display: videoLoaded ? "block" : "none",
-            }}
-          />
-        )}
-      </section>
+<section data-aos="fade-up">
+  <h2>Demo Video</h2>
+  {!videoLoaded && !videoError && (
+    <div className="video-loader">Loading demo...</div>
+  )}
+  <div style={{ marginTop: "1rem", width: "100%", maxWidth: "800px" }}>
+    <iframe
+      src="https://drive.google.com/file/d/1dwXJ0FsAhjT9N9oU88mRc1CZZ6-ZN3mz/preview"
+      width="100%"
+      height="480"
+      allow="autoplay"
+      allowFullScreen
+      onLoad={() => setVideoLoaded(true)}
+      onError={() => setVideoError(true)}
+      style={{
+        border: "none",
+        borderRadius: "8px",
+        display: videoError ? "none" : "block",
+      }}
+    ></iframe>
+    {videoError && (
+      <div style={{ color: "red", marginTop: "1rem" }}>
+        ❌ Failed to load video. Please try again later.
+      </div>
+    )}
+  </div>
+</section>
 
       {/* Main Sections */}
       <main>
